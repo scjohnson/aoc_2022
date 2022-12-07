@@ -62,21 +62,14 @@ if __name__ == "__main__":
         elif lines[i] == "$ cd ..":
             loc = loc.parent
         elif "$ cd " in lines[i]:
-            directory = lines[i].split(" ")[2]
-            if directory not in loc.children:
-                loc = loc.add_child(directory)
+            loc = loc.add_child(lines[i].split(" ")[2])
         else:
             print("uncaptured: ", lines[i])
         i += 1
 
-    sizes = base.navigate()
-    sizes = np.array(sorted(sizes.values()))
-    sizes = sizes[sizes <= 100000]
-    print("1: ", sum(sizes))
+    navigation = base.navigate()
+    sizes = np.array(sorted(navigation.values()))
+    print("1: ", sum(sizes[sizes <= 100000]))
 
-    sizes = base.navigate()
-    total = max(sizes.values())
-    diff = 70000000 - max(sizes.values())
-    sizes = np.array(sorted(sizes.values()))
     print("2: ", sizes[sizes > max(sizes) - 40000000][0])  # high: 839443248
 
