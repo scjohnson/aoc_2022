@@ -28,12 +28,6 @@ class Tree:
     def add_file(self, size, file):
         self.files.append([file, int(size)])
 
-    def get_directory(self, directory):
-        for ch in self.children:
-            if ch.name == directory:
-                return ch
-        return None
-
     def navigate(self):
         size = sum([f[1] for f in self.files])
         sizes = {}
