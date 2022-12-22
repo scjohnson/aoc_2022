@@ -1,6 +1,4 @@
 import aocd
-import functools
-import operator
 
 
 class CPU:
