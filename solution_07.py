@@ -65,5 +65,5 @@ if __name__ == "__main__":
     sizes = np.array(sorted(navigation.values()))
     print("1: ", sum(sizes[sizes <= 100000]))
 
-    print("2: ", sizes[sizes > max(sizes) - 40000000][0])  # high: 839443248
+    print("2: ", sizes[sizes > max(sizes) - 40000000][0])
 
